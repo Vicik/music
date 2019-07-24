@@ -394,6 +394,10 @@ export default {
         this.paused = false
         this.ended = this.$refs.audio.ended
       }
+      const currentTime = this.duration * percent
+      if (this.currentLyric) {
+        this.currentLyric.seek(currentTime * 1000)
+      }
     },
     pre () {
       this.paused = false
@@ -428,6 +432,14 @@ export default {
     }
   },
   watch: {
+    $route (newRoute) {
+      this._play(newRoute.params.id)
+      this._getLyric(newRoute.params.id)
+      this.$nextTick(() => {
+        this._initScroll()
+      })
+      this.paused = false
+    },
     url (newUrl) {
       this.$refs.audio.src = newUrl
       let stop = setInterval(() => {

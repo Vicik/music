@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 11;
+    z-index: 14;
     font-size: 0;
     overflow: hidden;
   }
@@ -83,7 +83,7 @@
       <i class="nav-icon iconfont icon-xiangyou" @click="back"></i>
       <h2>{{title}}</h2>
     </header>
-    <div ref="rankWrapper" class="rank-wrapper">
+    <div class="rank-wrapper">
       <div>
         <div class="song-list-container" ref="imgScroll">
           <div class="rank-info">
@@ -120,7 +120,6 @@
 import Playlist from '../public/Playlist'
 import {getData} from '@/common/js/ajax'
 import {createSong} from '@/common/js/song'
-import BScroll from 'better-scroll'
 import {mapGetters, mapMutations} from 'vuex'
 
 export default {
@@ -140,7 +139,6 @@ export default {
   mounted () {
     this.title = this.$route.query.title
     this._getRankDetail(this.$route.params.id)
-    this._initScroll()
   },
   methods: {
     back () {
@@ -179,23 +177,6 @@ export default {
         }
       })
     },
-    _initScroll () {
-      if (!this.$refs.rankWrapper) {
-        return
-      }
-      this.songScroll = new BScroll(this.$refs.rankWrapper, {
-        click: true,
-        probeType: 3
-      })
-      this.songScroll.on('scroll', (pos) => {
-        this.scrollY = Math.abs(Math.round(pos.y))
-        if (this.scrollY >= 250) {
-          this.isFix = true
-        } else {
-          this.isFix = false
-        }
-      })
-    },
     moveToSong (id) {
       this.$router.push({
         path: `/music/${id}`
@@ -209,20 +190,10 @@ export default {
     ])
   },
   watch: {
-    // scrollY (newY) {
-    //   if (newY <= -255) {
-    //     this.isFix = true
-    //     this.songScroll.stop()
-    //   } else {
-    //     this.isFix = false
-    //     this.songScroll.enable()
-    //   }
-    // },
-    '$route' (newRoute) {
+    $route (newRoute) {
       if (newRoute.name === 'detail') {
         this.title = this.$route.query.title
         this._getRankDetail(this.$route.params.id)
-        this._initScroll()
       }
     }
   }

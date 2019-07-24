@@ -35,24 +35,6 @@
   margin-top: 60px;
   position: relative;
 }
-.dot-container {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  margin-left: -50px;
-  display: flex;
-  justify-content: space-between;
-  width: 100px;
-}
-.dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #333;
-}
-.active {
-  background-color: #eee;
-}
 .recommend-containr{
   padding: 0 10px;
 }
@@ -65,12 +47,9 @@
     </div>
     <div class="carousel-container">
       <carousel :carImgs="imgUrl"></carousel>
-      <ul class="dot-container">
-        <li v-for="i in 9" :key="i" class="dot" :class="{'active': (i-1)===mark}"></li>
-      </ul>
     </div>
     <div class="recommend-containr">
-      <recommend type="歌单" title="推荐歌单" square="歌单广场" :lists="songLists"></recommend>
+      <recommend type="歌单" title="推荐歌单" :lists="songLists"></recommend>
     </div>
   </div>
 </template>
@@ -86,7 +65,6 @@ export default {
   data () {
     return {
       imgs: [],
-      mark: 0,
       songLists: []
     }
   },
@@ -104,15 +82,6 @@ export default {
     }
   },
   methods: {
-    autoPlay () {
-      this.mark++
-      if (this.mark === 9) {
-        this.mark = 0
-      }
-    },
-    play () {
-      setInterval(this.autoPlay, 2500)
-    },
     _getBanner () {
       var that = this
       getData('/banner').then(function (res) {
@@ -141,7 +110,7 @@ export default {
     }
   },
   mounted () {
-    this.play()
+    // this.play()
     this._getBanner()
     this._getRecommend()
   },

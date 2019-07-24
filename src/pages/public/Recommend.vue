@@ -3,19 +3,10 @@
     padding: 20px 0;
   }
   .recommend-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    align-items: left;
     margin-bottom: 10px;
-  }
-  .recommend-title {
     font-size: 20px;
     font-weight: bold;
-  }
-  .square {
-    padding: 4px 12px;
-    border: 1px solid #eee;
-    border-radius: 15px;
   }
   .container{
     display: flex;
@@ -27,8 +18,7 @@
 <template>
   <div class="recommend">
     <div class="recommend-head">
-      <p class="recommend-title">{{title}}</p>
-      <span class="square">{{square}}</span>
+      <p>{{title}}</p>
     </div>
     <div class="container" v-if="show">
       <song-sheet v-for="(item, i) in lists" :key="i" :list="item" @toDetail="moveToDetail"></song-sheet>
@@ -48,9 +38,6 @@ export default {
       type: Array
     },
     title: {
-      type: String
-    },
-    square: {
       type: String
     },
     type: {
