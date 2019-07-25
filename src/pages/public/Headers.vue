@@ -76,12 +76,16 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   props: ['iconType', 'inputShow', 'text', 'trends'],
   data () {
     return {
       activeShow: true
     }
+  },
+  computed: {
+    ...mapGetters(['showMusic'])
   },
   methods: {
     change (e) {

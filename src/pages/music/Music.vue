@@ -205,7 +205,7 @@
         <div class="end">{{duration | format}}</div>
       </div>
       <div class="player">
-        <i class="iconfont icon-inturn icon"></i>
+        <i class="iconfont icon" :class="iconMode" @click="changeMode"></i>
         <i class="iconfont icon-icon_gequxiangqing_s icon" @click="pre"></i>
         <i class="iconfont icon icon-s" :class="{
           'icon-zanting':paused,
@@ -223,11 +223,13 @@
 </template>
 
 <script>
+import BScroll from 'better-scroll'
+import Lyric from 'lyric-parser'
 import Playlist from '../public/Playlist'
 import {getData} from '@/common/js/ajax'
-import BScroll from 'better-scroll'
 import {mapGetters, mapMutations} from 'vuex'
-import Lyric from 'lyric-parser'
+import {playMode} from '@/common/js/config'
+
 const progressBtnWidth = 10
 
 export default {
@@ -266,7 +268,9 @@ export default {
     ...mapGetters([
       'playlist',
       'currentSong',
-      'currentIndex'
+      'currentIndex',
+      'mode',
+      'showMusic'
     ]),
     upDatecurrentLyric () {
       if (this.noLyric) {
@@ -274,6 +278,15 @@ export default {
       }
       if (!this.noLyric) {
         return '歌词加载中'
+      }
+    },
+    iconMode () {
+      if (this.mode === playMode.sequence) {
+        return 'icon-inturn'
+      } else if (this.mode === playMode.loop) {
+        return 'icon-icon-test1'
+      } else {
+        return 'icon-suijibofang'
       }
     }
   },
@@ -289,7 +302,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['setCurrentIndex', 'getSong']),
+    ...mapMutations(['setCurrentIndex', 'getSong', 'setPlayMode']),
     _initScroll () {
       if (!this.$refs.lyricList) {
         return
@@ -401,7 +414,7 @@ export default {
     },
     pre () {
       this.paused = false
-      let index = this.currentIndex - 1
+      let index = this.currentIndex * 1 - 1
       if (index === -1) {
         index = this.playlist.length - 1
       }
@@ -413,7 +426,7 @@ export default {
     },
     next () {
       this.paused = false
-      let index = this.currentIndex + 1
+      let index = this.currentIndex * 1 + 1
       if (index === this.playlist.length) {
         index = 0
       }
@@ -429,6 +442,10 @@ export default {
       } else {
         this.currentShow = 'cd'
       }
+    },
+    changeMode () {
+      const mode = (this.mode + 1) % 3
+      this.setPlayMode(mode)
     }
   },
   watch: {

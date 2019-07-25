@@ -41,7 +41,7 @@
     <div class="title">
       <div class="title-left">
         <i class="iconfont icon-shipin icon"></i>
-        <h3>{{title}}</h3>
+        <h3>播放全部</h3>
         <span class="total">(共{{playlist.length}}首)</span>
       </div>
       <span v-if="subShow">收藏全部</span>
@@ -62,16 +62,13 @@ export default {
   props: ['num', 'subCount'],
   data () {
     return {
-      title: '',
       subShow: false
     }
   },
   created () {
     if (this.num === 1) {
-      this.title = '列表循环'
       this.subShow = true
     } else {
-      this.title = '播放全部'
       this.subShow = false
     }
   },
