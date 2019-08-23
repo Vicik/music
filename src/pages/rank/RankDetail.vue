@@ -1,11 +1,7 @@
 <style scoped>
   .rank-detail{
-    position: fixed;
-    top: 0;
-    left: 0;
     z-index: 14;
     font-size: 0;
-    overflow: hidden;
   }
   .nav{
     display: flex;
@@ -15,9 +11,10 @@
     position: fixed;
     top: 0;
     width: 100%;
-    height: 44px;
+    height: 40px;
     box-sizing: border-box;
     font-size: 20px;
+    line-height: 40px;
     color: #fff;
     background-color: rgb(202, 34, 5);
     z-index: 100;
@@ -30,7 +27,6 @@
     margin-left: 20px;
   }
   .rank-wrapper{
-    height: 100vh;
     background-color: #fff;
   }
   .rank-info{
@@ -71,10 +67,6 @@
     border-top-right-radius: 10px;
     background-color: #fff;
   }
-  .isFixed{
-    position: absolute;
-    top: 44px;
-  }
 </style>
 
 <template>
@@ -84,33 +76,31 @@
       <h2>{{title}}</h2>
     </header>
     <div class="rank-wrapper">
-      <div>
-        <div class="song-list-container" ref="imgScroll">
-          <div class="rank-info">
-            <img class="rank-img" :src="rankDetail.imgUrl" alt="">
-            <ul class="details">
-              <li class="detail">
-                <i class="iconfont icon-119"></i>
-                <span>{{rankDetail.commentCount}}万</span>
-              </li>
-              <li class="detail">
-                <i class="iconfont icon-toutiaofenxiang"></i>
-                <span>{{rankDetail.shareCount}}</span>
-              </li>
-              <li class="detail">
-                <i class="iconfont icon-xiazai"></i>
-                <span>下载</span>
-              </li>
-              <li class="detail">
-                <i class="iconfont icon-ic_duoxuan"></i>
-                <span>多选</span>
-              </li>
-            </ul>
-          </div>
+      <div class="song-list-container">
+        <div class="rank-info">
+          <img class="rank-img" :src="rankDetail.imgUrl" alt="">
+          <ul class="details">
+            <li class="detail">
+              <i class="iconfont icon-119"></i>
+              <span>{{rankDetail.commentCount}}万</span>
+            </li>
+            <li class="detail">
+              <i class="iconfont icon-toutiaofenxiang"></i>
+              <span>{{rankDetail.shareCount}}</span>
+            </li>
+            <li class="detail">
+              <i class="iconfont icon-xiazai"></i>
+              <span>下载</span>
+            </li>
+            <li class="detail">
+              <i class="iconfont icon-ic_duoxuan"></i>
+              <span>多选</span>
+            </li>
+          </ul>
         </div>
-        <div class="playlist-wrapper" :class="{isFixed: isFix}">
-          <playlist :subCount="rankDetail.subCount" :num="2"></playlist>
-        </div>
+      </div>
+      <div class="playlist-wrapper" :class="{isFixed:isFix}">
+        <playlist :subCount="rankDetail.subCount" :num="2"></playlist>
       </div>
     </div>
   </div>
@@ -135,6 +125,8 @@ export default {
   },
   components: {
     Playlist
+  },
+  created () {
   },
   mounted () {
     this.title = this.$route.query.title

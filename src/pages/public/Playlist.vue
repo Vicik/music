@@ -1,10 +1,15 @@
 <style scoped>
   .title{
+    position: sticky;
+    top: 40px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px;
     font-size: 16px;
+    background: #fff;
   }
   .icon{
     font-size: 20px;
@@ -31,13 +36,12 @@
     background-color: #f00;
   }
   .songList-wrapper{
-    height: 70vh;
     overflow: hidden;
   }
 </style>
 
 <template>
-  <div class="palylist">
+  <div class="playlist">
     <div class="title">
       <div class="title-left">
         <i class="iconfont icon-shipin icon"></i>
@@ -54,7 +58,6 @@
 </template>
 
 <script>
-import BScroll from 'better-scroll'
 import SongList from '../public/SongList'
 import {mapGetters} from 'vuex'
 
@@ -72,22 +75,10 @@ export default {
       this.subShow = false
     }
   },
-  mounted () {
-    this._initScroll()
-  },
   computed: {
     ...mapGetters(['playlist'])
   },
   methods: {
-    _initScroll () {
-      if (!this.$refs.songList) {
-        return
-      }
-      this.songListScroll = new BScroll(this.$refs.songList, {
-        click: true,
-        probeType: 3
-      })
-    },
     moveToSong (id) {
       this.$router.push({
         path: `/music/${id}`
