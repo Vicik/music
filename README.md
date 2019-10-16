@@ -15,3 +15,13 @@
 ![播放列表](https://github.com/Vicik/music/blob/master/docImg/%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8.jpg)
 ## 实现功能
 推荐页面、排行榜页面、歌单详情、排行榜详情、播放列表、播放器、用户中心等等功能。
+
+## Build Setup
+``# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
