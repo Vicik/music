@@ -1,6 +1,6 @@
 # mapp
 
-> 基于 Vue + vuex + vue-router + axios +better-scroll + Scss + ES6 等开发一款移动端音乐 WebApp，UI 界面参考了苹果版的网易云音乐、flex 布局适配常见移动端。
+> 基于 Vue + vuex + vue-router + axios +better-scroll + ES6 等开发一款移动端音乐 WebApp，UI 界面参考了苹果版的网易云音乐、flex 布局适配常见移动端。
 
 ## 预览
 ### 推荐、排行榜、个人中心
