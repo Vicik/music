@@ -17,7 +17,8 @@
 推荐页面、排行榜页面、歌单详情、排行榜详情、播放列表、播放器、用户中心等等功能。
 
 ## Build Setup
-``# install dependencies
+```
+# install dependencies
 npm install
 
 # serve with hot reload at localhost:8080
@@ -25,3 +26,4 @@ npm run dev
 
 # build for production with minification
 npm run build
+```
