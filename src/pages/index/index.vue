@@ -32,7 +32,6 @@
 }
 .carousel-container {
   padding: 10px;
-  margin-top: 60px;
   position: relative;
 }
 .recommend-containr{
@@ -42,24 +41,23 @@
 
 <template>
   <div class="container">
-    <div class="headers-container">
-      <headers iconType='icon-icons64x6441' :inputShow="true" :text="false" :trends="false"></headers>
+    <div class="head-container">
+      <m-head iconType='icon-icons64x6441' :inputShow="true" :text="false" :trends="false"></m-head>
     </div>
     <div class="carousel-container">
-      <carousel :carImgs="imgUrl"></carousel>
+      <carousel :banner="imgUrl"></carousel>
     </div>
     <div class="recommend-containr">
-      <recommend type="歌单" title="推荐歌单" :lists="songLists"></recommend>
+      <recommend title="推荐歌单" :lists="songLists"></recommend>
     </div>
   </div>
 </template>
 
 <script>
-import Carousel from '../public/Carousel'
-import Headers from '../public/Headers'
-import Icon from '../public/Icon'
-import Recommend from '../public/Recommend'
-import Lines from '../public/Lines'
+import Carousel from '@/public/Carousel'
+import MHead from '@/public/MHead'
+import Recommend from '@/public/Recommend'
+import Lines from '@/public/Lines'
 import {getData} from '@/common/js/ajax'
 export default {
   data () {
@@ -116,8 +114,7 @@ export default {
   },
   components: {
     Carousel,
-    Headers,
-    Icon,
+    MHead,
     Recommend,
     Lines
   }

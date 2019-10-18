@@ -225,7 +225,7 @@
 <script>
 import BScroll from 'better-scroll'
 import Lyric from 'lyric-parser'
-import Playlist from '../public/Playlist'
+import Playlist from '@/public/Playlist'
 import {getData} from '@/common/js/ajax'
 import {mapGetters, mapMutations} from 'vuex'
 import {playMode} from '@/common/js/config'

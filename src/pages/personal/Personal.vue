@@ -7,7 +7,7 @@
 <template>
   <div class="container">
     <div class="headers-container">
-      <Headers iconType='icon-yunduo' :inputShow="false" :text="true" :trends="false"></Headers>
+      <m-head iconType='icon-yunduo' :inputShow="false" :text="true" :trends="false"></m-head>
     </div>
     <div class="lists-container">
       <lists :lists="my"></lists>
@@ -20,9 +20,9 @@
 </template>
 
 <script>
-import Headers from '../public/Headers'
-import Lists from '../public/Lists'
-import Lines from '../public/Lines'
+import MHead from '@/public/MHead'
+import Lists from '@/public/Lists'
+import Lines from '@/public/Lines'
 
 export default {
   data () {
@@ -82,7 +82,7 @@ export default {
     }
   },
   components: {
-    Headers,
+    MHead,
     Lists,
     Lines
   }

@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/pages/index/index'
 import rankList from '@/pages/rank/RankList'
-import songList from '@/pages/public/SongList'
+import songList from '@/public/SongList'
 import Music from '@/pages/music/Music'
 import rankDetail from '@/pages/rank/RankDetail'
-import my from '@/pages/my/my'
+import Personal from '@/pages/personal/Personal'
 
 Vue.use(Router)
 
@@ -41,9 +41,9 @@ export default new Router({
       component: rankDetail
     },
     {
-      path: '/my',
-      name: 'my',
-      component: my
+      path: '/personal',
+      name: 'personal',
+      component: Personal
     }
   ]
 })

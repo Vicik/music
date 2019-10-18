@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import Slide from '../public/Slide'
+import Slide from '@/public/Slide'
 export default {
   props: ['lists'],
   components: {Slide}

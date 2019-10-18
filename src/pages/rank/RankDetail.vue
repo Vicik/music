@@ -107,7 +107,7 @@
 </template>
 
 <script>
-import Playlist from '../public/Playlist'
+import Playlist from '@/public/Playlist'
 import {getData} from '@/common/js/ajax'
 import {createSong} from '@/common/js/song'
 import {mapGetters, mapMutations} from 'vuex'

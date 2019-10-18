@@ -28,16 +28,16 @@
 
 <template>
   <div class="carousel">
-    <img v-for="(img, i) in carImgs" :key="i" :src="img" class="ad-img" v-show="i===mark">
+    <img v-for="(img, i) in banner" :key="i" :src="img" class="ad-img" v-show="i===mark">
     <ul class="dot-container">
-      <li v-for="i in 9" :key="i" class="dot" :class="{'active': (i-1)===mark}"></li>
+      <li v-for="i in banner.length" :key="i" class="dot" :class="{'active': (i-1)===mark}"></li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['carImgs'],
+  props: ['banner'],
   data () {
     return {
       mark: 0
@@ -46,7 +46,7 @@ export default {
   methods: {
     autoPlay () {
       this.mark++
-      if (this.mark === 9) {
+      if (this.mark === this.banner.length) {
         this.mark = 0
       }
     },

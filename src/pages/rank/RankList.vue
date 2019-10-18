@@ -1,6 +1,5 @@
 <style scoped>
   .rank-container{
-    margin-top: 60px;
     padding: 0 10px;
   }
 </style>
@@ -8,7 +7,7 @@
 <template>
   <div class="container">
     <div class="headers-container">
-      <Headers iconType='icon-shipin' :inputShow="true" :text="false" :trends="false"></Headers>
+      <m-head iconType='icon-shipin' :inputShow="true" :text="false" :trends="false"></m-head>
     </div>
     <div class="rank-container">
       <rank v-for="(rank, i) in rankLists" :key="i" :rankList="rank" @moveToDetail="_getDetail"></rank>
@@ -18,7 +17,7 @@
 </template>
 
 <script>
-import Headers from '../public/Headers'
+import MHead from '@/public/MHead'
 import Rank from '../public/Rank'
 import {getData} from '@/common/js/ajax'
 export default {
@@ -34,7 +33,7 @@ export default {
     }
   },
   components: {
-    Headers,
+    MHead,
     Rank
   },
   methods: {

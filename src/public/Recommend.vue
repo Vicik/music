@@ -20,18 +20,14 @@
     <div class="recommend-head">
       <p>{{title}}</p>
     </div>
-    <div class="container" v-if="show">
-      <song-sheet v-for="(item, i) in lists" :key="i" :list="item" @toDetail="moveToDetail"></song-sheet>
-    </div>
-    <div class="container" v-if="!show">
-      <album v-for="(item, i) in lists" :key="i" :album="item"></album>
+    <div class="container">
+      <album v-for="(item, i) in lists" :key="i" :album="item" @toDetail="moveToDetail"></album>
     </div>
   </div>
 </template>
 
 <script>
-import SongSheet from '../public/SongSheet'
-import Album from '../public/Album'
+import Album from '@/public/Album'
 export default {
   props: {
     lists: {
@@ -39,27 +35,10 @@ export default {
     },
     title: {
       type: String
-    },
-    type: {
-      type: String
     }
   },
   data () {
     return {
-      show: true
-    }
-  },
-  created () {
-    switch (this.type) {
-      case '专辑':
-        this.show = false
-        break
-      case '歌单':
-        this.show = true
-        break
-      case '新歌':
-        this.show = false
-        break
     }
   },
   methods: {
@@ -71,7 +50,6 @@ export default {
     }
   },
   components: {
-    SongSheet,
     Album
   }
 }
