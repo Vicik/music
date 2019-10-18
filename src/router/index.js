@@ -4,8 +4,9 @@ import index from '@/pages/index/index'
 import rankList from '@/pages/rank/RankList'
 import songList from '@/public/SongList'
 import Music from '@/pages/music/Music'
-import rankDetail from '@/pages/rank/RankDetail'
+import SongSheet from '@/public/SongSheet'
 import Personal from '@/pages/personal/Personal'
+import Search from '@/pages/search/Search'
 
 Vue.use(Router)
 
@@ -38,12 +39,16 @@ export default new Router({
     {
       path: '/detail/:id',
       name: 'detail',
-      component: rankDetail
+      component: SongSheet
     },
     {
       path: '/personal',
       name: 'personal',
       component: Personal
+    },
+    {
+      path: '/search',
+      component: Search
     }
   ]
 })

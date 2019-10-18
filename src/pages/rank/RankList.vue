@@ -18,7 +18,7 @@
 
 <script>
 import MHead from '@/public/MHead'
-import Rank from '../public/Rank'
+import Rank from '@/public/Rank'
 import {getData} from '@/common/js/ajax'
 export default {
   data () {

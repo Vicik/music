@@ -1,5 +1,5 @@
 <style scoped>
-  .m-head {
+  .search-head {
     margin: 10px;
     display: flex;
     justify-content: space-between;
@@ -11,9 +11,11 @@
     background-color: #fff;
   }
   .search {
+    padding-left: 10px;
+    margin-right: 10px;
     flex: 1;
+    display: flex;
     height: 100%;
-    text-align: center;
     outline: none;
     background-color: #eee;
     border-radius: 15px;
@@ -22,12 +24,10 @@
     flex: 0 0 40px;
     font-size: 24px;
   }
-  .icon:last-child {
-    text-align: right;
-  }
   .search .input {
     vertical-align: top;
-    width: 100px;
+    flex: 1;
+    width: 100%;
     height: 100%;
     background-color: transparent;
     outline: none;
@@ -36,38 +36,32 @@
   .search i {
     font-size: 28px;
   }
+  .search-head span{
+      font-size: 14px;
+      color: #333;
+  }
 </style>
 
 <template>
-  <div class="m-head">
-    <i class="icon iconfont" :class="iconType"></i>
-    <div class="search" v-if="inputShow">
-      <i class="iconfont icon-search"></i>
-      <input type="text" class="input" placeholder="猜你喜欢" @click="moveToSearch">
+  <div class="search-head">
+    <div class="search">
+      <i class="iconfont icon-search icon"></i>
+      <input type="text" class="input" placeholder="猜你喜欢">
     </div>
-    <span v-if="text">我的音乐</span>
-    <i class="icon iconfont icon-weibiaoti-"></i>
+    <span @click="back">取消</span>
   </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
 export default {
-  props: ['iconType', 'inputShow', 'text', 'trends'],
   data () {
     return {
-      activeShow: true
     }
   },
   methods: {
-    moveToSearch () {
-      this.$router.push({
-        path: '/search'
-      })
+    back () {
+      this.$router.back()
     }
-  },
-  computed: {
-    ...mapGetters(['showMusic'])
   }
 }
 </script>

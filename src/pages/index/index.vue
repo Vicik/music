@@ -50,6 +50,7 @@
     <div class="recommend-containr">
       <recommend title="推荐歌单" :lists="songLists"></recommend>
     </div>
+    <router-view></router-view>
   </div>
 </template>
 
