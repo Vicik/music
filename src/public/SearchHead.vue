@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 30px;
+    height: 44px;
     font-size: 24px;
     text-align: left;
     box-sizing: border-box;
@@ -15,7 +15,7 @@
     margin-right: 10px;
     flex: 1;
     display: flex;
-    height: 100%;
+    height: 30px;
     outline: none;
     background-color: #eee;
     border-radius: 15px;

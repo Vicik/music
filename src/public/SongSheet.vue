@@ -14,10 +14,10 @@
     position: fixed;
     top: 0;
     width: 100%;
-    height: 40px;
+    height: 44px;
     box-sizing: border-box;
     font-size: 20px;
-    line-height: 40px;
+    line-height: 44px;
     color: #fff;
     background-color: rgb(202, 34, 5);
     z-index: 100;

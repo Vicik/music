@@ -4,23 +4,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 30px;
+    height: 44px;
+    line-height: 44px;
     font-size: 24px;
     text-align: left;
-    box-sizing: border-box;
     background-color: #fff;
   }
   .search {
     flex: 1;
-    height: 100%;
+    margin-right: 5px;
+    height: 30px;
+    line-height: 30px;
     text-align: center;
     outline: none;
     background-color: #eee;
     border-radius: 15px;
   }
   .icon {
-    flex: 0 0 40px;
-    font-size: 24px;
+    widows: 40px;
+    font-size: 20px;
   }
   .icon:last-child {
     text-align: right;
@@ -41,9 +43,9 @@
 <template>
   <div class="m-head">
     <i class="icon iconfont" :class="iconType"></i>
-    <div class="search" v-if="inputShow">
+    <div class="search" v-if="inputShow" @click="moveToSearch">
       <i class="iconfont icon-search"></i>
-      <input type="text" class="input" placeholder="猜你喜欢" @click="moveToSearch">
+      <input type="text" class="input" placeholder="猜你喜欢">
     </div>
     <span v-if="text">我的音乐</span>
     <i class="icon iconfont icon-weibiaoti-"></i>
@@ -53,7 +55,7 @@
 <script>
 import {mapGetters} from 'vuex'
 export default {
-  props: ['iconType', 'inputShow', 'text', 'trends'],
+  props: ['iconType', 'inputShow', 'text'],
   data () {
     return {
       activeShow: true

@@ -6,7 +6,7 @@
     letter-spacing: 1px;
     padding: 5px;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 18px;
   }
   .lists-wrapper{
     width: 100%;
@@ -20,7 +20,7 @@
   .num{
     margin-right: 10px;
     flex: 0 0 28px;
-    font-size: 14px;
+    font-size: 18px;
   }
   .names{
     flex: 1;
