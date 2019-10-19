@@ -13,6 +13,8 @@
 ![播放器](https://github.com/Vicik/music/blob/master/docImg/%E6%92%AD%E6%94%BE%E5%99%A8.jpg)
 ![歌词](https://github.com/Vicik/music/blob/master/docImg/%E6%AD%8C%E8%AF%8D.jpg)
 ![播放列表](https://github.com/Vicik/music/blob/master/docImg/%E6%92%AD%E6%94%BE%E5%88%97%E8%A1%A8.jpg)
+### 搜索
+![搜索](https://github.com/Vicik/music/blob/master/docImg/%E6%90%9C%E7%B4%A2.jpg)
 ## 实现功能
 推荐页面、排行榜页面、歌单详情、排行榜详情、播放列表、播放器、用户中心等等功能。
 
