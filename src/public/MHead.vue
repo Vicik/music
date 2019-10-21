@@ -48,12 +48,11 @@
       <input type="text" class="input" placeholder="猜你喜欢">
     </div>
     <span v-if="text">我的音乐</span>
-    <i class="icon iconfont icon-weibiaoti-"></i>
+    <i class="icon iconfont icon-weibiaoti-" @click="showMusic"></i>
   </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
 export default {
   props: ['iconType', 'inputShow', 'text'],
   data () {
@@ -66,10 +65,12 @@ export default {
       this.$router.push({
         path: '/search'
       })
+    },
+    showMusic () {
+      this.$router.push({
+        path: '/music/1397317478'
+      })
     }
-  },
-  computed: {
-    ...mapGetters(['showMusic'])
   }
 }
 </script>

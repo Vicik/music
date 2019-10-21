@@ -263,6 +263,7 @@ export default {
     this.$nextTick(() => {
       this._initScroll()
     })
+    console.log(this.showPlayer)
   },
   computed: {
     ...mapGetters([
